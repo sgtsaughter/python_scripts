@@ -9,7 +9,7 @@ while phone_number is None:
     if send_sms.lower() == 'y':
         # TODO: Add phone number validation
         phone_number = str(input("Please enter a phone number to be alerted when item is in stock:\n"))
-        print(phone_number)
+        print(f"The number {phone_number} will be sent a text message when a ps5 is added to the cart")
     elif send_sms.lower() == 'n':
         phone_number = False
     else:
