@@ -19,11 +19,11 @@ while phone_number is None:
 # For using chrome
 browser = webdriver.Chrome('chromedriver')
 
-# Bestbuy PS5 Disk page
-browser.get("https://www.bestbuy.com/site/sony-playstation-5-console/6426149.p?skuId=6426149")
+# GameStop PS5 Disk page
+browser.get("https://www.gamestop.com/video-games/playstation-5/consoles/products/playstation-5/11108140.html")
 
-# Bestbuy purchasable page.  Using to test on a product I know is in stock.
-# browser.get("https://www.bestbuy.com/site/sony-playstation-pulse-3d-wireless-headset-compatible-for-both-playstation-4-playstation-5-white/6430164.p?skuId=6430164")
+# GameStop purchasable page.  Using to test on a product I know is in stock.
+# browser.get("https://www.gamestop.com/video-games/playstation-5/games/products/call-of-duty-black-ops-cold-war/11103153.html?rrec=true")
 
 
 buyButton = False
@@ -32,7 +32,8 @@ while not buyButton:
 
     try:
         # If this works then the button is not pytopen
-        addToCartBtn = addButton = browser.find_element_by_class_name("btn-disabled")
+        addToCartBtn = addButton = browser.find_element_by_css_selector('button.add-to-cart[disabled="disabled"]')
+
 
         # Button isnt open restart the script
         print({"Playstation OUT OF STOCK"})
@@ -43,7 +44,7 @@ while not buyButton:
 
     except:
 
-        addToCartBtn = addButton = browser.find_element_by_class_name("btn-primary")
+        addToCartBtn = addButton = browser.find_element_by_class_name("add-to-cart")
 
         # Click the button and end the script
         print({"Playstation IN STOCK"})
